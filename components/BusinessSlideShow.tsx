@@ -2,6 +2,10 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useInView } from "motion/react";
+import Deel from "@/public/Deel.png";
+import Shimmer from "@/public/Shimmer.png";
+import Angellist from "@/public/Angellist.png";
+import ATeam from "@/public/ATeam.png";
 
 let controlInterval: NodeJS.Timeout;
 export default function BusinessSlideShow() {
@@ -30,7 +34,10 @@ export default function BusinessSlideShow() {
     {
       company: "Deel",
       Content: "See how Deel improved CSAT by 20% with Cal.com",
-      backgroundImage: "bg-Deel",
+      backgroundImage: Deel,
+      gradient:
+        "linear-gradient(to right,rgba(14,54,119,0.4),rgba(14,54,119,0.4))",
+
       imgProps: {
         src: "/DeelLogo.svg",
         className: "mx-auto h-fit w-12 sm:w-14",
@@ -47,7 +54,9 @@ export default function BusinessSlideShow() {
       company: "Angellist",
       Content:
         "See how AngelList used instant meetings to easily meet with customers",
-      backgroundImage: "bg-Angellist",
+      backgroundImage: Angellist,
+      gradient:
+        "linear-gradient(to right,rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('/Angellist.png')",
       imgProps: {
         src: "/AngellistLogo.png",
         className: "mx-auto h-fit w-24",
@@ -63,7 +72,9 @@ export default function BusinessSlideShow() {
     {
       company: "Shimmer",
       Content: "See how Shimmer transformed ADHD coaching with Cal.com",
-      backgroundImage: "bg-Shimmer",
+      backgroundImage: Shimmer,
+      gradient:
+        "linear-gradient(to right,rgba(251,214,55,0.4),rgba(251,214,55,0.4))",
       imgProps: {
         src: "/ShimmerLogo.png",
         className: "mx-auto h-fit w-24 sm:w-28 ",
@@ -79,7 +90,9 @@ export default function BusinessSlideShow() {
     {
       company: "ATeam",
       Content: "See how A.Team cut scheduling time by 70% with Cal.com",
-      backgroundImage: "bg-ATeam",
+      backgroundImage: ATeam,
+      gradient:
+        "linear-gradient(to right,rgba(153,60,248,0.4),rgba(153,60,248,0.4)),url('/ATeam.png')",
       imgProps: {
         src: "/aTeamLogo.svg",
         className: "mx-auto h-fit w-20 sm:w-24",
@@ -93,7 +106,6 @@ export default function BusinessSlideShow() {
       },
     },
   ];
-  // <Image {...data[active].imgProps} />;
 
   return (
     <div className="flex flex-col gap-4" ref={targetRef}>
@@ -103,19 +115,31 @@ export default function BusinessSlideShow() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1 } }}
           exit={{ opacity: 0, transition: { duration: 0.5 } }}
-          className={`aspect-video w-full bg-cover bg-no-repeat bg-center rounded-2xl flex flex-col items-start justify-between p-6 ${data[active].backgroundImage}`}
+          className={`overflow-hidden relative aspect-video w-full rounded-2xl `}
         >
-          <div className="brightness-0 invert">
-            <Image
-              src={data[active].imgProps.src}
-              className={data[active].imgProps.className}
-              width={data[active].imgProps.width}
-              height={data[active].imgProps.height}
-              alt={data[active].imgProps.alt}
-            />
-          </div>
-          <div className="font-cal text-lg font-medium leading-tight text-white text-balance sm:text-2xl">
-            {data[active].Content}
+          <Image
+            src={data[active].backgroundImage}
+            alt=""
+            className="w-full h-auto"
+          />
+          <div
+            className="absolute inset-0 flex flex-col items-start justify-between p-6"
+            style={{
+              backgroundImage: data[active].gradient,
+            }}
+          >
+            <div className="brightness-0 invert">
+              <Image
+                src={data[active].imgProps.src}
+                className={data[active].imgProps.className}
+                width={data[active].imgProps.width}
+                height={data[active].imgProps.height}
+                alt={data[active].imgProps.alt}
+              />
+            </div>
+            <div className="font-cal text-lg font-medium leading-tight text-white text-balance sm:text-2xl">
+              {data[active].Content}
+            </div>
           </div>
         </motion.div>
       </AnimatePresence>
