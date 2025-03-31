@@ -172,7 +172,7 @@ const ReviewCard = ({ review }: { review: ReviewProp }) => {
         </div>
       </div>
       <div
-        className="[&>a]:text-[#6701e6]"
+        className="[&>a]:text-[#6701e6] hover:[&>a]:underline  decoration-[#8338ec] hover:[&>a]:text-[#8338ec] underline-offset-2"
         dangerouslySetInnerHTML={{ __html: review.html.replace(/\n/g, "<br>") }}
       />
     </motion.div>

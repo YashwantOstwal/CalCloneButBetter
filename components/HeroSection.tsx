@@ -3,6 +3,7 @@ import * as motion from "motion/react-client";
 import CustomButton from "./CustomButton";
 import SectionWrap from "./SectionWrap";
 import GoogleLogo from "./HeroSectionSVGs/GoogleLogo";
+import SquaredImage from "@/public/SquaredBackground.png";
 import HeroSectionCard from "./HeroSectionCard";
 interface imgPropProps {
   src: string;
@@ -33,12 +34,27 @@ const HeroSection = () => {
   ];
   return (
     <SectionWrap>
-      <div className="px-2 lg:px-20 lg:pt-20 lg:pb-10 mt-[84px] grid max-lg:grid-rows-[auto_1fr] gap-4 lg:grid-cols-2 lg:gap-10 bg-white rounded-xl border border-gray font-matter overflow-hidden bg-hero">
+      <div className="px-2 lg:p-20 lg:pb-10 mt-[84px] grid max-lg:grid-rows-[auto_1fr] gap-4 lg:grid-cols-2 lg:gap-10 bg-white rounded-xl border border-gray font-matter overflow-hidden relative">
+        <div
+          className="absolute z-0 inset-0 bg-white"
+          style={{
+            maskImage:
+              "linear-gradient(to right,#ffffff,rgba(255,255,255,0)0%,rgba(255,255,255,0) 42%, rgba(255,255,255,0.4) 50%,rgba(255,255,255,0.6))",
+          }}
+        >
+          <Image
+            src={SquaredImage}
+            alt="background-image"
+            style={{ objectFit: "cover" }}
+            fill
+            className="scale-125 origin-top"
+          ></Image>
+        </div>
         <motion.div
           initial={{ opacity: 0, y: "30px" }}
           animate={{ opacity: 1, y: "0px" }}
           transition={{ ease: "easeOut" }}
-          className="max-lg:p-4 max-lg:pt-[64px] flex flex-col gap-4 lg:gap-7 max-lg:items-center max-lg:text-center"
+          className="relative z-10 max-lg:p-4 max-lg:pt-[64px] flex flex-col gap-4 lg:gap-7 max-lg:items-center max-lg:text-center"
         >
           <p className="rounded-full bg-[#f5f5f5] border border-gray font-matter text-[12px] py-1 px-[14px] shadow-md w-fit text-[#242424] max-lg:mx-auto">
             Cal.com lauches new v5.1
@@ -72,7 +88,7 @@ const HeroSection = () => {
             </p>
           </div>
         </motion.div>
-        <div>
+        <div className="relative z-30">
           <HeroSectionCard />
           <div className="hidden lg:flex items-center flex-nowrap gap-12 mt-8 mx-2">
             {imgProps.map(({ src, width, height, alt }) => (
@@ -82,7 +98,11 @@ const HeroSection = () => {
                 alt={alt}
                 width={width}
                 height={height}
-                className="h-[54px] w-fit"
+                // className="h-[54px] w-auto"
+                style={{
+                  width,
+                  height,
+                }}
               />
             ))}
           </div>
