@@ -4,8 +4,8 @@ export default function Coinbase() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="160"
-      height="auto"
+      width="150"
+      height="60"
       viewBox="0 0 1391 507"
       fill="none"
     >

@@ -2,8 +2,8 @@ export default function Framer() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="160"
-      height="auto"
+      width="150"
+      height="75"
       viewBox="0 0 277 135"
       fill="none"
     >
