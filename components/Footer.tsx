@@ -147,7 +147,7 @@ const Footer = () => {
             />
           ))}
         </Link>
-        <nav role="socials" className="flex mt-6 gap-4 items-center">
+        <nav aria-label="socials" className="flex mt-6 gap-4 items-center">
           {Socials.map((eachSocial) => (
             <Link
               key={eachSocial.label}
