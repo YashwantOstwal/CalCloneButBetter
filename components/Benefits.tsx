@@ -523,9 +523,9 @@ function Demo() {
     <div className="max-w-[400px] relative mt-2 w-full mx-8 h-full font-matter">
       <StackCards top="16px" stackCount={3} shrinkBy="10%">
         <div className="p-4 sm:p-6">
-          <h3 className="mb-4 text-md font-semibold text-[rgb(156,163,175)] tracking-wide">
+          <div className="mb-4 text-md font-semibold text-[rgb(156,163,175)] tracking-wide">
             Notice and buffers
-          </h3>
+          </div>
           <DropDown
             label="Minimum notice"
             values={["24 hours", "25 mins", "45 mins"]}
@@ -588,9 +588,9 @@ function BenefitsCard({
   return (
     <div className="bg-white rounded-2xl border border-gray grid grid-rows-5 font-matter gap-4 overflow-hidden">
       <div className="px-8 pt-8 space-y-4 row-span-2">
-        <h3 className="text-[20px] text-[#141414] font-semibold tracking-wide">
+        <div className="text-[20px] text-[#141414] font-semibold tracking-wide">
           {title}
-        </h3>
+        </div>
         <p className="text-[#6b7280] text-[16px] ">{description}</p>
       </div>
       <div className="row-span-3 [&>div:h-full] [&>div:w-full] flex justify-center">

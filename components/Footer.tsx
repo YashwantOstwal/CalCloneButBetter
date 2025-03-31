@@ -19,31 +19,38 @@ import {
 const Footer = () => {
   const Socials = [
     {
+      label: "x",
       href: "https://go.cal.com/x",
       Logo: <XLogo />,
     },
     {
+      label: "github",
       href: "https://github.com/calcom",
       Logo: <GithubLogo />,
     },
     {
+      label: "youtube",
       href: "https://go.cal.com/youtube",
       Logo: <YoutubeLogo />,
     },
     {
+      label: "instagram",
       href: "https://go.cal.com/instagram",
       Logo: <InstagramLogo />,
     },
 
     {
+      label: "discussions",
       href: "https://go.cal.com/discussions",
       Logo: <DiscussionsLogo />,
     },
     {
+      label: "product_hunt",
       href: "https://go.cal.com/producthunt",
       Logo: <ProductHuntLogo />,
     },
     {
+      label: "hacker_news",
       href: "https://go.cal.com/hackernews",
       Logo: <YCombinatorLogo />,
     },
@@ -140,17 +147,18 @@ const Footer = () => {
             />
           ))}
         </Link>
-        <div className="flex mt-6 gap-4 items-center">
+        <nav role="socials" className="flex mt-6 gap-4 items-center">
           {Socials.map((eachSocial) => (
             <Link
-              key={eachSocial.href}
+              key={eachSocial.label}
               className="hover:invert"
+              aria-label={eachSocial.label}
               href={eachSocial.href}
             >
               {eachSocial.Logo}
             </Link>
           ))}
-        </div>
+        </nav>
         <p className="mt-2 max-w-[350px] text-base">
           Our mission is to connect a billion people by 2031 through calendar
           scheduling.
