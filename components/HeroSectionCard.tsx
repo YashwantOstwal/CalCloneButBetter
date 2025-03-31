@@ -116,6 +116,7 @@ const HeroSectionCard = () => {
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ ease: "easeOut" }}
+      aria-hidden
       className="bg-[#fafafa] p-1 border border-gray rounded-xl font-inter lg:w-[140%] m-auto max-lg:[transform:translateY(12%)] w-fit origin-[75%_50%]"
     >
       <div className="border border-gray bg-white rounded-xl grid md:grid-cols-[auto_1fr] max-md:grid-rows-[auto_1fr] overflow-hidden">
