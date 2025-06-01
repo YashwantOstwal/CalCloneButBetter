@@ -1,29 +1,15 @@
 import type { Metadata } from "next";
-import Benefits from "@/components/Benefits";
-import SectionWrap from "@/components/SectionWrap";
-import HowItWorks from "@/components/HowItWorks";
-import WallOfLove from "@/components/WallOfLove";
-import {
-  Deel,
-  Vercel,
-  Angelist,
-  Mercury,
-  Lumsitry,
-} from "@/components/CustomersLogo";
-import Testimonials from "@/components/Testimonials";
-import StoryBlok from "@/components/CustomersLogo/StoryBlok";
-import Business from "@/components/Business";
-import Customers from "@/components/Customers";
-import Orrick from "@/components/CustomersLogo/Orrick";
-import Antimetal from "@/components/CustomersLogo/Antimetal";
-import Supabase from "@/components/CustomersLogo/Supabase";
-import Framer from "@/components/CustomersLogo/Framer";
-import Coinbase from "@/components/CustomersLogo/Coinbase";
-import Okteto from "@/components/CustomersLogo/Okteto";
-import GetStarted from "@/components/GetStarted";
-import Footer from "@/components/Footer";
-import AppStore from "@/components/AppStore";
-import HeroSection from "@/components/HeroSection";
+import Benefits from "@/components/sections/Benefits";
+import HowItWorks from "@/components/sections/HowItWorks";
+import WallOfLove from "@/components/sections/WallOfLove";
+import Testimonials from "@/components/sections/Testimonials";
+import Business from "@/components/sections/Business/Business";
+import GetStarted from "@/components/sections/GetStarted/GetStarted";
+import Footer from "@/components/sections/Footer";
+import AppStore from "@/components/sections/AppStore";
+import Hero from "@/components/sections/Hero";
+import TrustedBy from "@/components/sections/TrustedBy";
+import SchedulingFor from "@/components/sections/SchedulingFor";
 
 export const metadata: Metadata = {
   title: "CalCloneButBetter.com | Landing Page clone",
@@ -31,68 +17,25 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  openGraph: {
+    images: ["./opengraph-image.png"],
+  },
+  metadataBase: new URL("https://calclonebutbetter.com"),
 };
-export default function Home() {
+export default async function Home() {
   return (
-    <>
-      <div className="max-w-screen-xl mx-auto">
-        <HeroSection />
-        <SectionWrap>
-          <Customers title="Trusted by fast-growing companies around the world">
-            {[
-              <Deel key="deel-logo" />,
-              <Vercel key="vercel-logo" />,
-              <Coinbase key="coinbase-logo" />,
-              <Mercury key="mercury-logo" />,
-              <Angelist key="angelist-logo" />,
-              <Lumsitry key="lumistry-logo" />,
-              <StoryBlok key="storyblok-logo" />,
-              <Framer key="framer-logo" />,
-              <Orrick key="orrick-logo" />,
-              <Antimetal key="antimetal-logo" />,
-            ]}
-          </Customers>
-        </SectionWrap>
-        <HowItWorks />
-        <SectionWrap>
-          <Benefits />
-        </SectionWrap>
-        <SectionWrap>
-          <Testimonials />
-        </SectionWrap>
-        <SectionWrap>
-          <AppStore />
-        </SectionWrap>
-        <SectionWrap>
-          <Business />
-        </SectionWrap>
-        <SectionWrap>
-          <WallOfLove />
-        </SectionWrap>
-        <SectionWrap>
-          <Customers
-            title="Scheduling for companies and employees of"
-            className="md:gap-y-14"
-          >
-            {[
-              <Deel key="deel-logo" />,
-              <Vercel key="vercel-logo" />,
-              <Mercury key="mercury-logo" />,
-              <Angelist key="angelist-logo" />,
-              <Lumsitry key="lumistry-logo" />,
-              <StoryBlok key="storyblok-logo" />,
-              <Orrick key="orrick-logo" />,
-              <Antimetal key="antimetal-logo" />,
-              <Supabase key="supabase-logo" />,
-              <Okteto key="okteto-logo" />,
-            ]}
-          </Customers>
-        </SectionWrap>
-        <SectionWrap>
-          <GetStarted />
-        </SectionWrap>
-        <Footer />
-      </div>
-    </>
+    <main>
+      <Hero />
+      <TrustedBy />
+      <HowItWorks />
+      <Benefits />
+      <Testimonials />
+      <AppStore />
+      <Business />
+      <WallOfLove />
+      <SchedulingFor className="[&>:last-child]:md:gap-y-14" />
+      <GetStarted />
+      <Footer />
+    </main>
   );
 }

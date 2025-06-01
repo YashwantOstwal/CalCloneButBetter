@@ -1,32 +1,29 @@
-import React from "react";
+interface StackCardsProps extends React.PropsWithChildren {
+  top: string;
+  shrinkBy: string;
+  stackCount: number;
+}
 
-function StackCards({
+export default function StackCards({
   top,
   shrinkBy,
   stackCount,
   children,
-}: {
-  top: string;
-  shrinkBy: string;
-  stackCount: number;
-  children: React.ReactNode;
-}) {
+}: StackCardsProps) {
   return (
     <>
-      {Array.from({ length: stackCount }).map((_, i: number) => (
+      {Array.from({ length: stackCount }).map((_, index: number) => (
         <div
-          key={"stack-card-" + i}
+          key={"stack-card-" + index}
           style={{
-            top: `calc(${i} * ${top})`,
-            insetInline: `calc(${stackCount - 1 - i} * ${shrinkBy}/2)`,
+            top: `calc(${index} * ${top})`,
+            insetInline: `calc(${stackCount - 1 - index} * ${shrinkBy}/2)`,
           }}
           className="h-full absolute rounded-3xl border border-gray bg-white"
         >
-          {i == stackCount - 1 && children}
+          {index == stackCount - 1 && children}
         </div>
       ))}
     </>
   );
 }
-
-export default StackCards;

@@ -1,17 +1,40 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
       {
         protocol: "https",
         hostname: "ph-avatars.imgix.net",
-        port: "",
         pathname: "/**",
-        search: "",
+      },
+      {
+        protocol: "https",
+        hostname: "user-images.trustpilot.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "senja-io.s3.us-west-1.amazonaws.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "ui-avatars.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.g2crowd.com",
+        pathname: "/**",
       },
     ],
+    dangerouslyAllowSVG: true,
   },
 };
 
