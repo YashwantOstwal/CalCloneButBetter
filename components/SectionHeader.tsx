@@ -43,11 +43,7 @@ const SectionHeader = ({ children, className }: SectionHeaderProps) => {
   );
 };
 
-SectionHeader.Label = function Label({
-  Icon,
-  children,
-  className,
-}: LabelProps) {
+function Label({ Icon, children, className }: LabelProps) {
   return (
     <span
       className={cn(
@@ -59,9 +55,9 @@ SectionHeader.Label = function Label({
       {children}
     </span>
   );
-};
+}
 
-SectionHeader.Title = function Title({ children, className }: TitleProps) {
+function Title({ children, className }: TitleProps) {
   return (
     <div
       className={cn(
@@ -72,12 +68,9 @@ SectionHeader.Title = function Title({ children, className }: TitleProps) {
       {children}
     </div>
   );
-};
+}
 
-SectionHeader.Description = function Description({
-  children,
-  className,
-}: DescriptionProps) {
+function Description({ children, className }: DescriptionProps) {
   return (
     <p
       className={cn("text-base lg:text-lg text-[#898989] max-w-2xl", className)}
@@ -85,10 +78,15 @@ SectionHeader.Description = function Description({
       {children}
     </p>
   );
-};
+}
 
-SectionHeader.StyledLink = function StyledLinkComponent(props: StyledLink) {
+function StyledLinkComponent(props: StyledLink) {
   return <StyledLink {...props} />;
-};
+}
+
+SectionHeader.Label = Label;
+SectionHeader.Title = Title;
+SectionHeader.Description = Description;
+SectionHeader.StyledLink = StyledLinkComponent;
 
 export default SectionHeader;
