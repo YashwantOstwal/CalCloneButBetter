@@ -1,5 +1,5 @@
 import ReviewsGrid from "./ReviewsGrid";
-
+import { cachedReviews } from "./reviews";
 interface Integrations {
   product_hunt?: {
     username: string;
@@ -15,28 +15,24 @@ interface Customer {
   avatar: string;
   tagline: string | null;
   integrations: Integrations;
-  url: string | null;
+  url: string | undefined;
 }
 interface ReviewType {
   customer: Customer;
-  integration: string | null;
-  url: string | null;
+  integration: string | undefined;
+  url: string | undefined;
   html: string;
 }
 const Reviews = async () => {
-  const response = await fetch(
-    "https://cal.com/_next/data/vifRycJQbcKSJsj1ThL5Z/en.json",
-    { cache: "force-cache" }
-  );
-
-  // I had to cache the response instead of revalidating it,
-  // because the API endpoint gets invalidated with time.
-
-  const data = await response.json();
-  const { reviews } = data.pageProps.senjaWidgetData;
+  // const response = await fetch(
+  //   "https://cal.com/_next/data/vifRycJQbcKSJsj1ThL5Z/en.json",
+  //   { cache: "no-store" }
+  // );
+  // const data = await response.json();
+  // const { reviews } = data.pageProps.senjaWidgetData;
 
   const requiredReviews: ReviewType[] = [];
-  for (let i = 0; i < reviews.length; i++) {
+  for (let i = 0; i < cachedReviews.length; i++) {
     const {
       customer: {
         id,
@@ -48,7 +44,7 @@ const Reviews = async () => {
       integration,
       url,
       html,
-    } = reviews[i];
+    } = cachedReviews[i];
     requiredReviews.push({
       customer: {
         id,

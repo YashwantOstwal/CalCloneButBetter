@@ -25,12 +25,12 @@ interface Customer {
   avatar: string;
   tagline: string | null;
   integrations: Integrations;
-  url: string | null;
+  url: string | undefined;
 }
 interface ReviewProp {
   customer: Customer;
-  integration: string | null;
-  url: string | null;
+  integration: string | undefined;
+  url: string | undefined;
   html: string;
 }
 interface ReviewsGridProps {
