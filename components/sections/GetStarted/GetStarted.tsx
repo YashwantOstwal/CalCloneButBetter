@@ -50,7 +50,7 @@ export default function GetStarted() {
 
   return (
     <Section>
-      <div className="overflow-clip rounded-xl px-1 py-6 md:px-1 md:py-20 bg-white border border-gray relative mt-5 mb-3">
+      <div className="card-shadow  overflow-clip rounded-xl px-1 py-6 md:px-1 md:py-20 bg-white border border-gray relative mt-5 mb-3">
         <div className="flex flex-col items-center gap-8 relative z-10">
           <h1 className="font-cal md:leading-tight text-[35px] md:text-[45px] max-w-lg text-center">
             Smarter, simpler scheduling

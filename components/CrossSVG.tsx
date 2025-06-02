@@ -1,11 +1,15 @@
 import React, { CSSProperties } from "react";
+import { cn } from "@/utils/cn";
 
-const CrossSVG = (props: {
+const CrossSVG = ({
+  fill,
+  className,
+  ...rest
+}: {
   className?: string;
   style?: CSSProperties;
   fill?: string;
 }) => {
-  const { fill, ...rest } = props;
   return (
     <svg
       xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -18,6 +22,7 @@ const CrossSVG = (props: {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
+      className={cn("rounded-full size-6", className)}
       {...rest}
     >
       <rect

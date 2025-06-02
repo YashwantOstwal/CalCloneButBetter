@@ -13,7 +13,7 @@ export default function Section({ children, className, style }: SectionProps) {
   return (
     <div
       style={{ zIndex: zIndex-- }}
-      className="border-b border-[#c0c2c4] px-3"
+      className="border-b border-[#c0c2c4] px-3 mb-[12px]"
     >
       <section
         style={{ ...style }}
@@ -22,8 +22,8 @@ export default function Section({ children, className, style }: SectionProps) {
           className
         )}
       >
-        <CrossSVG className="absolute -left-[14px] -bottom-[14px] rounded-full scale-[0.85]" />
-        <CrossSVG className="absolute -right-[14px] -bottom-[14px] rounded-full scale-[0.85]" />
+        <CrossSVG className="absolute -left-3 -bottom-3 " />
+        <CrossSVG className="absolute -right-3 -bottom-3" />
         {children}
       </section>
     </div>

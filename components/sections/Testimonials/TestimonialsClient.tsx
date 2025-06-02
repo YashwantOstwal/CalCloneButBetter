@@ -83,11 +83,11 @@ export default function TestimonialsClient() {
           }}
           className="w-[85%] sm:w-[75%] md:w-[65%] lg:w-[50%] h-full shrink-0 relative p-3 border-r-gray border-r"
         >
-          <CrossSVG className="absolute -left-[14px] -bottom-[14px] rounded-full scale-[0.85]" />
-          <CrossSVG className="absolute -right-[14px] -bottom-[14px] rounded-full scale-[0.85]" />
-          <CrossSVG className="absolute -left-[14px] -top-[14px] rounded-full scale-[0.85]" />
-          <CrossSVG className="absolute -right-[14px] -top-[14px] rounded-full scale-[0.85]" />
-          <motion.div className="border border-gray rounded-2xl bg-white h-full flex flex-col justify-between p-4 lg:p-6 font-matter">
+          <CrossSVG className="absolute -left-3 -bottom-3 " />
+          <CrossSVG className="absolute -right-3 -bottom-3 " />
+          <CrossSVG className="absolute -left-3 -top-3 " />
+          <CrossSVG className="absolute -right-3 -top-3 " />
+          <motion.div className="card-shadow border border-gray rounded-2xl bg-white h-full flex flex-col justify-between p-4 lg:p-6 font-matter">
             <p className="text-[20px] lg:text-[24px] text-[#141414] [text-indent:-6px] lg:[text-indent:-7px] font-semibold">
               &quot;{testimonial.testimonial}&quot;
             </p>

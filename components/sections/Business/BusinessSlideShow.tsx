@@ -109,21 +109,21 @@ export default function BusinessSlideShow() {
 
   return (
     <div className="flex flex-col gap-4" ref={targetRef}>
-      <AnimatePresence mode="popLayout">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={active}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1 } }}
           exit={{ opacity: 0, transition: { duration: 0.5 } }}
-          className={`overflow-hidden relative aspect-video w-full rounded-2xl `}
+          className="overflow-hidden relative aspect-video w-full rounded-2xl"
         >
           <Image
             src={data[active].backgroundImage}
             alt=""
-            className="w-full h-auto"
+            className="w-full h-full object-cover "
           />
           <div
-            className="absolute inset-0 flex flex-col items-start justify-between p-6"
+            className="absolute inset-0 flex flex-col items-start justify-between p-2 lg:p-6"
             style={{
               backgroundImage: data[active].gradient,
             }}

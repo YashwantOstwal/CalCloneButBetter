@@ -18,7 +18,7 @@ const GridItem = ({
     <div
       onMouseEnter={() => setMouseIn(true)}
       onMouseLeave={() => setMouseIn(false)}
-      className="bg-white border border-gray rounded-2xl flex flex-col px-2 py-4 md:p-4 items-center relative overflow-hidden h-full"
+      className="card-shadow bg-white border border-gray rounded-2xl flex flex-col px-2 py-4 md:p-4 items-center relative overflow-hidden h-full"
     >
       <div
         className={`h-14 my-2 aspect-square bg-neutral-100 rounded-md relative bg-no-repeat bg-center [backgroundSize:24px] ${img}`}

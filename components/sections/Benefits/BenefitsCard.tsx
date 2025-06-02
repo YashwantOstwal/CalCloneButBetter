@@ -12,7 +12,7 @@ export default function BenefitsCard({
   children,
 }: BenefitsCardProps) {
   return (
-    <div className="bg-white rounded-2xl border border-gray grid grid-rows-5 font-matter gap-4 overflow-hidden">
+    <div className="card-shadow bg-white rounded-2xl border border-gray grid grid-rows-5 font-matter gap-4 overflow-hidden">
       <div className="px-8 pt-8 space-y-4 row-span-2">
         <div className="text-[20px] text-[#141414] font-semibold tracking-wide">
           {title}

@@ -1,5 +1,4 @@
 import ReviewsGrid from "./ReviewsGrid";
-import { cachedReviews } from "./reviews";
 interface Integrations {
   product_hunt?: {
     username: string;
@@ -24,15 +23,14 @@ interface ReviewType {
   html: string;
 }
 const Reviews = async () => {
-  // const response = await fetch(
-  //   "https://cal.com/_next/data/vifRycJQbcKSJsj1ThL5Z/en.json",
-  //   { cache: "no-store" }
-  // );
-  // const data = await response.json();
-  // const { reviews } = data.pageProps.senjaWidgetData;
+  const response = await fetch(
+    "https://widget.senja.io/api/widget-config/6a0c4b74-527a-4058-bded-8a358821c1a0",
+    { cache: "force-cache" }
+  );
+  const { reviews } = await response.json();
 
   const requiredReviews: ReviewType[] = [];
-  for (let i = 0; i < cachedReviews.length; i++) {
+  for (let i = 0; i < reviews.length; i++) {
     const {
       customer: {
         id,
@@ -44,7 +42,7 @@ const Reviews = async () => {
       integration,
       url,
       html,
-    } = cachedReviews[i];
+    } = reviews[i];
     requiredReviews.push({
       customer: {
         id,
