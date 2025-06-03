@@ -1,6 +1,6 @@
 import * as motion from "motion/react-client";
 import Image from "next/image";
-import CustomButton from "@/components/StyledLink";
+import StyledLink from "@/components/StyledLink";
 import Section from "@/components/Section";
 import Google from "@/components/SVGs/Hero/Google";
 import HeroClient from "./HeroClient";
@@ -42,9 +42,9 @@ export default function Hero() {
           transition={{ ease: "easeOut" }}
           className="relative z-10 max-lg:p-4 max-lg:pt-[64px] flex flex-col gap-4 lg:gap-7 max-lg:items-center max-lg:text-center"
         >
-          <p className="rounded-full bg-[#f5f5f5] border border-gray font-matter text-[12px] py-1 px-[14px] shadow-md w-fit text-[#242424] max-lg:mx-auto">
+          <span className="rounded-full bg-[#f5f5f5] border border-gray font-matter text-[12px] py-1 px-[14px] shadow-md w-fit text-[#242424] max-lg:mx-auto">
             Cal.com lauches new v5.1
-          </p>
+          </span>
           <h1 className=" text-[40px] md:text-[55px] xl:text-[70px] font-cal text-primary-black leading-none text-balance">
             The better way to schedule your meetings
           </h1>
@@ -55,19 +55,19 @@ export default function Hero() {
           </p>
           <div className="w-[90%] space-y-4 md:max-w-[600px] max-w-[400px] lg:max-w-[400px] max-lg:mx-auto max-lg:px-2">
             <div className="flex gap-4 md:flex-row flex-col lg:flex-col">
-              <CustomButton
+              <StyledLink
                 href="https://app.cal.com/auth/sso/google"
                 className="flex-1"
               >
                 <Google /> <span>Sign up with google</span>
-              </CustomButton>
-              <CustomButton
+              </StyledLink>
+              <StyledLink
                 variant="light"
                 href="https://app.cal.com/signup"
                 className="flex-1 shadow-none"
               >
                 Sign up with email
-              </CustomButton>
+              </StyledLink>
             </div>
             <p className="text-center text-[#898989] text-[14px]">
               No credit card required

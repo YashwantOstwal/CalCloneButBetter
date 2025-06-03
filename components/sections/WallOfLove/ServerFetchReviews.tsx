@@ -60,6 +60,6 @@ const Reviews = async () => {
       html,
     });
   }
-  return <ReviewsGrid reviews={requiredReviews} limits={10} />;
+  return <ReviewsGrid reviews={requiredReviews} limit={10} />;
 };
 export default Reviews;

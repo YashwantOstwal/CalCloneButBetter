@@ -1,14 +1,7 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
-import XLogo from "@/public/WallOfLove/XLogo.png";
-import G2Logo from "@/public/WallOfLove/G2Logo.png";
-import ProductHuntLogo from "@/public/WallOfLove/ProductHuntLogo.png";
-import TrustPilotLogo from "@/public/WallOfLove/TrustPilotLogo.png";
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
-import { easeInOut } from "motion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import ReviewCard from "./ReviewsCard";
 
 interface Integrations {
   product_hunt?: {
@@ -35,21 +28,21 @@ interface ReviewProp {
 }
 interface ReviewsGridProps {
   reviews: ReviewProp[];
-  limits: number;
+  limit: number;
 }
-const ReviewsGrid = ({ reviews, limits }: ReviewsGridProps) => {
+const ReviewsGrid = ({ reviews, limit }: ReviewsGridProps) => {
   const mediaQuery = useMediaQuery<"base" | "sm" | "md">(["base", "sm", "md"]);
   const breakPointsMappedToColumns = {
     base: 1,
     sm: 2,
     md: 3,
   };
-  const [state, setState] = useState(limits);
+  const [state, setState] = useState(limit);
   const [windowTop, setWindowTop] = useState(0);
   const renderReviews = reviews.slice(0, state);
 
   const handleClick = () => {
-    setState((prev) => prev + limits);
+    setState((prev) => prev + limit);
     setWindowTop(document.documentElement.getBoundingClientRect().top);
   };
   useEffect(() => {
@@ -92,72 +85,6 @@ const ReviewsGrid = ({ reviews, limits }: ReviewsGridProps) => {
         </div>
       )}
     </div>
-  );
-};
-const ReviewCard = ({ review }: { review: ReviewProp }) => {
-  const getIntegration = (integration: string) => {
-    if (integration == "twitter") return XLogo;
-    if (integration == "trustpilot") return TrustPilotLogo;
-    if (integration === "product_hunt") return ProductHuntLogo;
-    else return G2Logo;
-  };
-  return (
-    <motion.div
-      initial={{ scale: 0.75, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ ease: easeInOut, duration: 0.175 }}
-      className="p-4 bg-[#F8F9FA] border border-gray rounded-xl font-inter text-[#374151] text-[16px] flex flex-col gap-2"
-    >
-      <div className="flex gap-4 items-center">
-        <div className="size-[42px] relative ">
-          <Image
-            src={review.customer.avatar}
-            alt={review.customer.name}
-            className="w-full h-full object-cover rounded-full"
-            width={42}
-            height={42}
-          />
-
-          {review.integration && review.url && (
-            <Link
-              href={review.url}
-              className="absolute -bottom-1 -right-1 bg-[#F8F9FA] p-0.5 rounded-full"
-            >
-              <Image
-                src={getIntegration(review.integration)}
-                width={12}
-                height={12}
-                alt={review.integration}
-              />
-            </Link>
-          )}
-        </div>
-        <div>
-          <div className="leading-none">{review.customer.name}</div>
-          {Object.values(review.customer.integrations)[0]?.username ? (
-            review.customer.url ? (
-              <Link href={review.customer.url}>
-                <span className="text-[#4c5870] text-[14px] leading-none">
-                  @{Object.values(review.customer.integrations)[0]?.username}
-                </span>
-              </Link>
-            ) : (
-              <span className="text-[#4c5870] text-[14px] leading-none">
-                @{Object.values(review.customer.integrations)[0]?.username}
-              </span>
-            )
-          ) : (
-            <span className="text-[#4c5870] text-[14px] leading-none">
-              {review.customer.tagline}
-            </span>
-          )}
-        </div>
-      </div>
-      <div
-        className="[&>a]:text-[#6701e6] [&>a]:underline hover:[&>a]:no-underline  decoration-[#8338ec] hover:[&>a]:text-[#8338ec] underline-offset-2"
-        dangerouslySetInnerHTML={{ __html: review.html.replace(/\n/g, "<br>") }}
-      />
-    </motion.div>
   );
 };
 export default ReviewsGrid;
