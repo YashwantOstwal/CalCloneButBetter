@@ -127,7 +127,10 @@ export default function Footer() {
   ];
 
   return (
-    <div className="flex max-md:flex-col w-full px-4 pl-8 gap-6 md:justify-between py-14 md:py-20 font-matter text-[14px] mt-12">
+    <section
+      id="footer"
+      className="mx-auto max-w-screen-xl flex max-md:flex-col w-full px-4 pl-8 gap-6 md:justify-between py-14 md:py-20 font-matter text-[14px] mt-12"
+    >
       <div className="max-lg:mb-12">
         <div className="flex pb-2 lg:pb-7">
           <Logo />
@@ -149,11 +152,11 @@ export default function Footer() {
             />
           ))}
         </Link>
-        <nav aria-label="socials" className="flex mt-6 gap-4 items-center">
+        <nav aria-label="socials" className="flex mt-6 items-center">
           {Socials.map((eachSocial) => (
             <Link
               key={eachSocial.label}
-              className="hover:invert"
+              className="hover:invert p-2"
               aria-label={eachSocial.label}
               href={eachSocial.href}
             >
@@ -188,6 +191,6 @@ export default function Footer() {
           <GridTemplate key={eachData.listTitle} {...eachData} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }

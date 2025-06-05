@@ -36,7 +36,7 @@ export default function Benefits() {
     },
   ];
   return (
-    <Section>
+    <Section id="benefits">
       <div className="py-6 lg:py-20 px-1 ">
         <div className="flex flex-col items-center">
           <SectionHeader>

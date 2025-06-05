@@ -67,25 +67,26 @@ const imgProps: imgPropsType[] = [
   { width: 55, height: 55, alt: "Meta Logo", src: MetaLogo },
 ];
 export default function AppStoreSlideShow() {
-  const { state } = useToggleState<HTMLDivElement>(
+  const { ref, state } = useToggleState<HTMLDivElement>(
     {
       from: 0,
       to: imgProps.length,
     },
-    3000
+    3500
   );
 
   const filteredImageProps = useMemo(() => {
     const temp: imgPropsType[] = [];
     let i = state;
     while (temp.length < 8) {
-      temp.push(imgProps[i]);
+      temp.unshift(imgProps[i]);
       i = (i + 1) % imgProps.length;
     }
     return temp;
   }, [state]);
   return (
     <div
+      ref={ref}
       aria-hidden
       role="presentation"
       className="[clip-path:inset(2px)] relative grid grid-cols-4 grid-rows-2 divide-x divide-y divide-gray w-full max-w-[450px] aspect-[2] m-10  bg-white overflow-hidden"
@@ -109,22 +110,20 @@ export default function AppStoreSlideShow() {
         fill="#ffffff"
       />
       <AnimatePresence mode="popLayout">
-        {filteredImageProps
-          .reverse()
-          .map(({ width, height, src, alt }: imgPropsType) => (
-            <div key={alt} className="grid place-items-center">
-              <motion.div
-                initial={{ scale: 0.7, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                layoutId={alt}
-                exit={{ scale: 0.7, opacity: 0 }}
-                transition={{ ease: "linear" }}
-                className="relative z-20"
-              >
-                <Image width={width} alt={alt} src={src} height={height} />
-              </motion.div>
-            </div>
-          ))}
+        {filteredImageProps.map(({ width, height, src, alt }: imgPropsType) => (
+          <div key={alt} className="grid place-items-center">
+            <motion.div
+              initial={{ scale: 0.7, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              layoutId={alt}
+              exit={{ scale: 0.7, opacity: 0 }}
+              transition={{ ease: "linear" }}
+              className="relative z-20"
+            >
+              <Image width={width} alt={alt} src={src} height={height} />
+            </motion.div>
+          </div>
+        ))}
       </AnimatePresence>
     </div>
   );

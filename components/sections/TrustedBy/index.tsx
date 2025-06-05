@@ -27,7 +27,7 @@ export default function TrustedBy() {
     <Antimetal key="antimetal" />,
   ];
   return (
-    <Section>
+    <Section id="trusted-by">
       <ClientShowcase>
         <ClientShowcase.Caption>
           Trusted by fast-growing companies around the world

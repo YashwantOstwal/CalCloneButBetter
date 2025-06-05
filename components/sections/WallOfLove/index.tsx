@@ -7,7 +7,7 @@ import Loader from "./WOLIcons/Loader";
 
 export default function WallOfLove() {
   return (
-    <Section>
+    <Section id="wall-of-love">
       <div className="py-6 lg:py-20 px-1">
         <SectionHeader>
           <SectionHeader.Label Icon={<Label />}>

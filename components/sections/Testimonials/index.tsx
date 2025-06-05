@@ -5,7 +5,7 @@ import Label from "./TestimonialsIcons/Label";
 
 export default function Testimonials() {
   return (
-    <Section>
+    <Section id="testimonials">
       <div className="pt-20 pb-28 space-y-10">
         <SectionHeader>
           <SectionHeader.Label Icon={<Label />}>

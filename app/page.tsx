@@ -10,6 +10,7 @@ import AppStore from "@/components/sections/AppStore";
 import Hero from "@/components/sections/Hero";
 import TrustedBy from "@/components/sections/TrustedBy";
 import SchedulingFor from "@/components/sections/SchedulingFor";
+import WhatsBetter from "@/components/WhatsBetter";
 
 export const metadata: Metadata = {
   title: "CalCloneButBetter.com | Landing Page clone",
@@ -36,6 +37,7 @@ export default async function Home() {
       <SchedulingFor className="[&>:last-child]:md:gap-y-14" />
       <GetStarted />
       <Footer />
+      <WhatsBetter />
     </main>
   );
 }

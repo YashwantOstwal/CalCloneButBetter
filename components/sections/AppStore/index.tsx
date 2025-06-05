@@ -4,7 +4,7 @@ import Section from "../../Section";
 import Label from "./AppStoreIcons/Label";
 export default function AppStore() {
   return (
-    <Section>
+    <Section id="app-store">
       <div className="card-shadow py-6 md:py-10 px-1 md:px-8 bg-white mb-1 rounded-xl border border-gray flex flex-col md:flex-row gap-4 md:gap-8 items-center">
         <div>
           <SectionHeader className="md:text-left md:items-start">

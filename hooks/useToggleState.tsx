@@ -11,14 +11,17 @@ export default function useToggleState<T extends HTMLElement>(
   duration: number
 ) {
   const ref = useRef<T>(null);
+  const isInView = useInView(ref);
   const controlInterval = useRef<NodeJS.Timeout>(undefined);
   const [state, setState] = useState(range.from);
 
   useEffect(() => {
-    controlInterval.current = setInterval(() => {
-      setState((prev) => range.from + ((prev + 1) % range.to));
-    }, duration);
+    if (isInView) {
+      controlInterval.current = setInterval(() => {
+        setState((prev) => range.from + ((prev + 1) % range.to));
+      }, duration);
+    }
     return () => clearInterval(controlInterval.current);
-  }, []);
-  return { state };
+  }, [isInView]);
+  return { ref, state };
 }

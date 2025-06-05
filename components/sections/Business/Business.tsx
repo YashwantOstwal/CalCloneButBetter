@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 import Label from "./BusinessIcons/Label";
 const Business = () => {
   return (
-    <Section>
+    <Section id="business">
       <div className="py-6 lg:py-20 md:grid md:grid-cols-2 md:gap-10 space-y-6">
         <div className="flex flex-col justify-end max-lg:items-center">
           <SectionHeader className="md:text-left md:items-start">

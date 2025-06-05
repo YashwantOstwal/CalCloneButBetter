@@ -35,7 +35,6 @@ const NavBar = () => {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest);
     if (latest == 1) {
       setAnimate({
         boxShadow:

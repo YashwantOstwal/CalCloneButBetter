@@ -34,8 +34,8 @@ const imgProps: imgPropProps[] = [
 ];
 export default function Hero() {
   return (
-    <Section>
-      <div className="card-shadow px-2 lg:p-20 lg:pb-10 mt-[84px] grid max-lg:grid-rows-[auto_1fr] gap-4 lg:grid-cols-2 lg:gap-10 bg-white rounded-xl border border-gray font-matter overflow-hidden relative">
+    <Section id="hero">
+      <div className="card-shadow px-2 lg:p-20 lg:pb-10 mt-[84px] grid max-lg:grid-rows-[auto_1fr] gap-4 lg:grid-cols-2 lg:gap-10 bg-white rounded-xl border border-gray font-matter overflow-hidden relative pb-2">
         <motion.div
           initial={{ opacity: 0, y: "30px" }}
           animate={{ opacity: 1, y: "0px" }}

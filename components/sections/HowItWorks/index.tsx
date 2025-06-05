@@ -29,7 +29,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <Section>
+    <Section id="how-it-works">
       <div className="py-6 lg:py-20 px-1">
         <SectionHeader>
           <SectionHeader.Label Icon={<Label />}>

@@ -9,6 +9,7 @@ const CrossSVG = ({
   className?: string;
   style?: CSSProperties;
   fill?: string;
+  stroke?: string;
 }) => {
   return (
     <svg

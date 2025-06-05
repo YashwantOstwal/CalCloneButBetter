@@ -2,20 +2,23 @@ import React, { CSSProperties, ReactNode } from "react";
 import CrossSVG from "./CrossSVG";
 import { cn } from "@/utils/cn";
 
-let zIndex = 30;
 interface SectionProps {
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
+  id: string;
 }
 
-export default function Section({ children, className, style }: SectionProps) {
+export default function Section({
+  children,
+  className,
+  style,
+  id,
+}: SectionProps) {
   return (
-    <div
-      style={{ zIndex: zIndex-- }}
-      className="border-b border-[#c0c2c4] px-3 mb-[12px]"
-    >
+    <div className="border-b border-[#c0c2c4] px-3 mb-3">
       <section
+        id={id}
         style={{ ...style }}
         className={cn(
           "border-x-gray border-x relative p-3 max-w-screen-xl mx-auto",

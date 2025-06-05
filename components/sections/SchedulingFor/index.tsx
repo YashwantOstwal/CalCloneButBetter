@@ -28,7 +28,7 @@ export default function SchedulingFor({ className }: { className?: string }) {
     <Okteto key="okteto" />,
   ];
   return (
-    <Section>
+    <Section id="client-showcase">
       <ClientShowcase className={cn(className)}>
         <ClientShowcase.Caption>
           Trusted by fast-growing companies around the world

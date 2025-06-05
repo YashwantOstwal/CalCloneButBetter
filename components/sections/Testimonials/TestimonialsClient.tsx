@@ -46,7 +46,7 @@ const testimonials: Testimonial[] = [
   },
 ];
 export default function TestimonialsClient() {
-  const { state } = useToggleState<HTMLDivElement>(
+  const { ref, state } = useToggleState<HTMLDivElement>(
     { from: 0, to: testimonials.length },
     5000
   );
@@ -60,7 +60,10 @@ export default function TestimonialsClient() {
     return orderedTestimonials;
   }, [state]);
   return (
-    <div className="px-1 h-[360px] sm:h-[270px] border-y border-y-gray flex justify-center relative overflow-x-clip">
+    <div
+      ref={ref}
+      className="px-1 h-[360px] sm:h-[270px] border-y border-y-gray flex justify-center relative overflow-x-clip"
+    >
       {orderedTestimonials.map((testimonial, index) => (
         <motion.div
           key={testimonial.name}
