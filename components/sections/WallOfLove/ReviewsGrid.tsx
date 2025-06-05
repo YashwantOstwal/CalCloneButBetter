@@ -18,7 +18,7 @@ interface Customer {
   avatar: string;
   tagline: string | null;
   integrations: Integrations;
-  url: string | undefined;
+  url: string | null;
 }
 interface ReviewProp {
   customer: Customer;

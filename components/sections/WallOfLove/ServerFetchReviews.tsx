@@ -14,7 +14,7 @@ interface Customer {
   avatar: string;
   tagline: string | null;
   integrations: Integrations;
-  url: string | undefined;
+  url: string | null;
 }
 interface ReviewType {
   customer: Customer;
@@ -32,13 +32,7 @@ const Reviews = async () => {
   const requiredReviews: ReviewType[] = [];
   for (let i = 0; i < reviews.length; i++) {
     const {
-      customer: {
-        id,
-        name,
-        avatar,
-        tagline,
-        integrations: { product_hunt, twitter },
-      },
+      customer: { id, name, avatar, tagline, integrations, url: customer_url },
       integration,
       url,
       html,
@@ -49,11 +43,8 @@ const Reviews = async () => {
         name,
         avatar,
         tagline,
-        url,
-        integrations: {
-          product_hunt,
-          twitter,
-        },
+        url: customer_url,
+        integrations,
       },
       integration,
       url,

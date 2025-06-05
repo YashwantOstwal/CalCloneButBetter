@@ -6,7 +6,6 @@ import ProductHuntLogo from "@/public/WallOfLove/ProductHuntLogo.png";
 import TrustPilotLogo from "@/public/WallOfLove/TrustPilotLogo.png";
 import { motion } from "motion/react";
 import { easeInOut } from "motion";
-import { Fragment } from "react";
 
 interface SocialIntegration {
   product_hunt?: {
@@ -23,7 +22,7 @@ interface Reviewer {
   avatar: string;
   tagline: string | null;
   integrations: SocialIntegration;
-  url: string | undefined;
+  url: string | null;
 }
 
 interface ReviewProps {
@@ -131,20 +130,19 @@ ReviewCard.Username = function Username({
   url,
   children,
 }: {
-  url: undefined | string;
-  children: undefined | string;
+  url: string | null;
+  children: string | undefined;
 }) {
-  const Component = url ? Link : Fragment;
-
-  return (
-    <Component href={url || ""}>
+  return url ? (
+    <Link href={url}>
       <span className="text-[#4c5870] text-[14px] leading-none">
         @{children}
       </span>
-    </Component>
+    </Link>
+  ) : (
+    <span className="text-[#4c5870] text-[14px] leading-none">@{children}</span>
   );
 };
-
 ReviewCard.TagLine = function TagLine({ tagline }: { tagline: string | null }) {
   return <span className="text-[#4c5870] text-sm leading-none">{tagline}</span>;
 };

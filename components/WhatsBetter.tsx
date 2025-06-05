@@ -13,7 +13,7 @@ export default function Page() {
   useEffect(() => {
     controlRef.current = setTimeout(() => {
       setOpen(true);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(controlRef.current);
   }, []);
   return (
@@ -21,7 +21,7 @@ export default function Page() {
       {open && (
         <motion.div
           className="
-          fixed z-[100] top-0 h-screen w-full flex flex-col justify-end items-center p-5 px-3"
+          fixed z-40 backdrop-blur-sm top-0 h-screen w-full flex flex-col justify-center lg:justify-end items-center lg:pb-10"
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -61,13 +61,13 @@ export default function Page() {
                   Close
                 </button>
               </div>
-              <div className="overflow-y-scroll ml-4 grid flex-1 grid-cols-6 grid-rows-[auto_auto_auto] gap-5 text-[#6f6f6f]">
+              <div className="overflow-y-scroll ml-4 grid flex-1 grid-cols-6 grid-rows-[auto_auto_auto] gap-3 lg:gap-5 text-[#6f6f6f]">
                 <SNo className="col-span-1 col-start-1 bg-[#369EFF]">1</SNo>
                 <div className="flex gap-2 col-span-5 ">
                   <div className="">
                     <p className="w-full">
                       Lighthouse scores for my clone on Desktop — significantly
-                      better than the official site
+                      better than the official site.
                     </p>
                     <Image
                       className="w-full max-w-[350px] h-auto"
@@ -80,44 +80,42 @@ export default function Page() {
 
                 <div className="flex gap-2 col-span-5">
                   <div className="">
-                    Server-Fetched user reviews for the&nbsp;
+                    Fetched user reviews for the&nbsp;
                     <Link
                       href="#wall-of-love"
                       className="text-zinc-600 font-semibold underline hover:no-underline underline-offset-2"
                     >
                       {"#WallOfLove"}
                     </Link>
-                    &nbsp;section, fetched from the&nbsp;
+                    &nbsp; section directly from the&nbsp;
                     <Link
                       className="text-[#6701e6] underline hover:no-underline decoration-[#8338ec] hover:text-[#8338ec] underline-offset-2"
                       href="https://widget.senja.io/api/widget-config/6a0c4b74-527a-4058-bded-8a358821c1a0"
                     >
                       Senja API
                     </Link>
-                    &nbsp;— unlike the official site, which fetches them on the
-                    client and exposes the API publicly. This allowed me to take
-                    advantage of the exposed API and implement proper
-                    server-side fetching in my clone.
+                    &nbsp; on the server — taking advantage of the fact that the
+                    official site uses client-side fetching and exposes the API
+                    publicly. This allowed me to scrape the API and implement
+                    proper server-side fetching in my clone.
                   </div>
                 </div>
                 <SNo className="col-span-1 col-start-1 bg-[#25d0ab]">3</SNo>
                 <div className="flex gap-2 col-span-5">
                   <p>
                     Minimized the client-side JS bundle by reducing the number
-                    of infinitely animating, non-interactive components — which,
-                    in the original site, re-render almost the entire document
-                    every 4 seconds just to jump to the next animation keyframe
-                    — from 10 client-rendered components to just 3, by
-                    converting them into server-rendered components powered by
-                    pure CSS animations.
+                    of infinitely animating, non-interactive components —
+                    converting them into server-rendered elements powered by
+                    pure CSS animations. On the original site, these components
+                    re-render almost the entire document every 4 seconds just to
+                    advance to the next animation keyframe.
                     <br />
-                    <br /> My clone avoids such exhaustive re-renders to drive
-                    keyframe animations. While this may have slightly increased
-                    the CSS payload, JavaScript bundle overhead is far more
-                    problematic for performance. No surprise my clone
-                    outperforms the official site — achieving a near-perfect
-                    Lighthouse performance score on desktop, while the official
-                    version averages around 70.
+                    <br />
+                    My clone avoids such exhaustive re-renders by handling
+                    keyframe animations more efficiently. While this slightly
+                    increases the CSS payload, the JavaScript bundle size is far
+                    more critical for performance. No surprise that my clone
+                    outperforms the official site
                   </p>
                 </div>
               </div>
