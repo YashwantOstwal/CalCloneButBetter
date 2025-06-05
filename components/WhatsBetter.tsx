@@ -7,7 +7,7 @@ import Link from "next/link";
 import { cn } from "@/utils/cn";
 import { useEffect, useRef, useState } from "react";
 
-export default function Page() {
+export default function WhatsBetter() {
   const controlRef = useRef<NodeJS.Timeout>(undefined);
   const [open, setOpen] = useState(false);
   useEffect(() => {

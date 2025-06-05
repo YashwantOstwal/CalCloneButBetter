@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Benefits from "@/components/sections/Benefits";
 import HowItWorks from "@/components/sections/HowItWorks";
 import WallOfLove from "@/components/sections/WallOfLove";
@@ -12,17 +11,7 @@ import TrustedBy from "@/components/sections/TrustedBy";
 import SchedulingFor from "@/components/sections/SchedulingFor";
 import WhatsBetter from "@/components/WhatsBetter";
 
-export const metadata: Metadata = {
-  title: "CalCloneButBetter.com | Landing Page clone",
-  description: "To be done in CN classes",
-  twitter: {
-    card: "summary_large_image",
-  },
-  openGraph: {
-    images: ["./opengraph-image.png"],
-  },
-  metadataBase: new URL("https://calclonebutbetter.com"),
-};
+
 export default async function Home() {
   return (
     <main>
